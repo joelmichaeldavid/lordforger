@@ -16,6 +16,9 @@ Open `prototype/index.html` in a browser to play the first micro-loop:
 - get an encounter
 - pick Engage / Observe / Avoid
 - advance time and watch Hearthvale change
+- trigger an encounter
+- advance time
+- observe Hearthvale state updates
 
 
 ## Where to play it

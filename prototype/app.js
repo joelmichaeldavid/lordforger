@@ -20,6 +20,22 @@ function createInitialState() {
 }
 
 let state = createInitialState();
+const state = {
+  day: 1,
+  segment: "Morning",
+  supplies: 12,
+  safety: 5,
+  prosperity: 3,
+  knownRumors: [],
+  hexes: Array.from({ length: 9 }).map((_, idx) => ({
+    id: idx + 1,
+    terrain: ["Forest", "Ruins", "Hills", "Marsh"][idx % 4],
+    danger: 2 + Math.floor(Math.random() * 4),
+    explored: false,
+  })),
+};
+
+const SEGMENTS = ["Morning", "Midday", "Evening", "Night"];
 
 const worldState = document.getElementById("worldState");
 const hexGrid = document.getElementById("hexGrid");
@@ -28,6 +44,7 @@ const encounterBox = document.getElementById("encounterBox");
 
 document.getElementById("restBtn").addEventListener("click", restInHearthvale);
 document.getElementById("resetBtn").addEventListener("click", resetRun);
+document.getElementById("restBtn").addEventListener("click", restInHearthvale);
 
 function addLog(text, tone = "") {
   const div = document.createElement("div");
@@ -130,6 +147,27 @@ function resolveEncounter(choice) {
   advanceTime(1);
   state.activeEncounter = null;
   render();
+    addLog("Trade caravans trickle in. Hearthvale feels a little stronger.", "good");
+  }
+}
+
+function encounter(hex) {
+  const roll = Math.random();
+  if (roll < 0.35) {
+    hex.danger = Math.max(0, hex.danger - 1);
+    state.safety = Math.min(10, state.safety + 1);
+    state.supplies += 1;
+    addLog(`You drove off threats in Hex ${hex.id}. The road feels safer.`, "good");
+  } else if (roll < 0.7) {
+    state.supplies = Math.max(0, state.supplies - 2);
+    hex.danger = Math.min(10, hex.danger + 1);
+    addLog(`An ambush in Hex ${hex.id} cost supplies. Rumors spread at the tavern.`, "warn");
+    maybeAddRumor(hex);
+  } else {
+    state.prosperity = Math.min(10, state.prosperity + 1);
+    addLog(`A traveler shared profitable routes near Hex ${hex.id}.`, "good");
+    maybeAddRumor(hex, true);
+  }
 }
 
 function maybeAddRumor(hex, positive = false) {
@@ -146,6 +184,10 @@ function travelToHex(hex) {
   advanceTime(1);
   addLog(`You travel to Hex ${hex.id} (${hex.terrain}).`, "");
   startEncounter(hex);
+  hex.explored = true;
+  advanceTime(1);
+  addLog(`You travel to Hex ${hex.id} (${hex.terrain}).`, "");
+  encounter(hex);
   render();
 }
 
@@ -222,4 +264,7 @@ function render() {
 }
 
 addLog("Session 1.2: choose your response in encounters.", "good");
+}
+
+addLog("Session 1 prototype initialized. Hearthvale awaits.");
 render();

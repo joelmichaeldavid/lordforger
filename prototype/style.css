@@ -26,6 +26,7 @@ main {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   padding: 1rem;
 }
 .panel {
@@ -62,6 +63,11 @@ main {
 #log {
   min-height: 220px;
   max-height: 45vh;
+.hex-btn:hover { border-color: #3f4e66; }
+.hex-meta { font-size: 0.85rem; color: var(--muted); }
+#log {
+  min-height: 280px;
+  max-height: 50vh;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -76,6 +82,9 @@ main {
 .log-item.warn { border-color: var(--warn); }
 .log-item.bad { border-color: var(--bad); }
 button {
+button#restBtn {
+  margin-top: 0.8rem;
+  width: 100%;
   padding: 0.65rem;
   border-radius: 8px;
   border: 1px solid var(--line);
