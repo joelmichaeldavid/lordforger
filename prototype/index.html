@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LordForger — Session 1 Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>LordForger — Session 1 (Playable Chat Prototype)</h1>
+      <p>A tiny vertical slice: travel, encounter, time, and Hearthvale reactions.</p>
+    </header>
+
+    <main>
+      <section class="panel status">
+        <h2>World State</h2>
+        <div id="worldState"></div>
+        <button id="restBtn">Rest in Hearthvale (Advance Time)</button>
+      </section>
+
+      <section class="panel map">
+        <h2>Nearby Hexes</h2>
+        <div id="hexGrid" class="hex-grid"></div>
+      </section>
+
+      <section class="panel log">
+        <h2>Event Log</h2>
+        <div id="log"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Tip: click a hex to travel; danger and rumors evolve over time.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
