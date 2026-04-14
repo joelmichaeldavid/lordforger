@@ -13,6 +13,9 @@ Project repository for the **LordForger** game by **7LeafPocket**.
 ## Playable Prototype (Session 1)
 Open `prototype/index.html` in a browser to play the first micro-loop:
 - choose a hex
+- get an encounter
+- pick Engage / Observe / Avoid
+- advance time and watch Hearthvale change
 - trigger an encounter
 - advance time
 - observe Hearthvale state updates

@@ -8,6 +8,8 @@
   </head>
   <body>
     <header>
+      <h1>LordForger — Playable Prototype</h1>
+      <p>Travel, face encounters, choose your response, and shape Hearthvale over time.</p>
       <h1>LordForger — Session 1 (Playable Chat Prototype)</h1>
       <p>A tiny vertical slice: travel, encounter, time, and Hearthvale reactions.</p>
     </header>
@@ -16,12 +18,23 @@
       <section class="panel status">
         <h2>World State</h2>
         <div id="worldState"></div>
+        <div class="controls-row">
+          <button id="restBtn">Rest in Hearthvale</button>
+          <button id="resetBtn">New Run</button>
+        </div>
         <button id="restBtn">Rest in Hearthvale (Advance Time)</button>
       </section>
 
       <section class="panel map">
         <h2>Nearby Hexes</h2>
         <div id="hexGrid" class="hex-grid"></div>
+      </section>
+
+      <section class="panel encounter">
+        <h2>Encounter</h2>
+        <div id="encounterBox" class="encounter-box">
+          <p>No encounter active. Travel to a hex to begin.</p>
+        </div>
       </section>
 
       <section class="panel log">
@@ -31,6 +44,7 @@
     </main>
 
     <footer>
+      <p>Mobile tip: on iPad, tap a hex → then choose Engage / Observe / Avoid.</p>
       <p>Tip: click a hex to travel; danger and rumors evolve over time.</p>
     </footer>
 
