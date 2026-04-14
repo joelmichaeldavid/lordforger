@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LordForger — Session 1 Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>LordForger — Playable Prototype</h1>
+      <p>Travel, face encounters, choose your response, and shape Hearthvale over time.</p>
+    </header>
+
+    <main>
+      <section class="panel status">
+        <h2>World State</h2>
+        <div id="worldState"></div>
+        <div class="controls-row">
+          <button id="restBtn">Rest in Hearthvale</button>
+          <button id="resetBtn">New Run</button>
+        </div>
+      </section>
+
+      <section class="panel map">
+        <h2>Nearby Hexes</h2>
+        <div id="hexGrid" class="hex-grid"></div>
+      </section>
+
+      <section class="panel encounter">
+        <h2>Encounter</h2>
+        <div id="encounterBox" class="encounter-box">
+          <p>No encounter active. Travel to a hex to begin.</p>
+        </div>
+      </section>
+
+      <section class="panel log">
+        <h2>Event Log</h2>
+        <div id="log"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Mobile tip: on iPad, tap a hex → then choose Engage / Observe / Avoid.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
